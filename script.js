@@ -26,3 +26,31 @@ function toggleHeart(button) {
   favoritesList.innerHTML = '';
   favoriteCards.forEach(favCard => favoritesList.appendChild(favCard));
 }
+
+function renderDynamicStars(container, maxStars) {
+  const currentRating = parseInt(container.getAttribute('data-user-rating')) || 0;
+
+  // Clear existing stars
+  container.innerHTML = '';
+
+  // Create stars dynamically
+  for (let i = 1; i <= maxStars; i++) {
+    const star = document.createElement('span');
+    star.textContent = i <= currentRating ? '★' : '☆';
+    star.style.cursor = 'pointer';
+
+    // Add click event to update rating
+    star.addEventListener('click', () => {
+      container.setAttribute('data-user-rating', i); // Update user rating
+      renderDynamicStars(container, maxStars); // Re-render stars
+    });
+
+    container.appendChild(star);
+  }
+}
+
+// Initialize dynamic ratings on page load
+document.querySelectorAll('.dynamic-star-rating').forEach(container => {
+  renderDynamicStars(container, 5); // Assume a 5-star system
+});
+

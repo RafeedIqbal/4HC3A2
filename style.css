@@ -70,13 +70,28 @@ nav button:hover {
   border-radius: 5px; 
 }
 
-.star-rating {
-  font-size: 1.2rem; 
-  color: gold; 
-  margin: 5px 0; 
-  display: flex; 
-  gap: 2px;
+/* Static stars */
+.static-star-rating {
+  font-size: 1.2rem;
+  color: gold;
+  margin-bottom: 5px;
 }
+
+/* Dynamic stars */
+.dynamic-star-rating span {
+  font-size: 1.5rem;
+  color: gold;
+  margin: 0 2px;
+}
+
+.dynamic-star-rating span:hover {
+  transform: scale(1.2); /* Slight hover effect */
+}
+
+.dynamic-star-rating span {
+  transition: transform 0.2s;
+}
+
 
 #favorites-list {
   display: flex;
@@ -84,6 +99,7 @@ nav button:hover {
   gap: 1rem;
   margin-top: 1rem;
 }
+
 
 
 

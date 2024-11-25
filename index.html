@@ -26,8 +26,11 @@
         <img src="/4HC3A2/images/library.jpg" alt="Library">
         <h3>Main Library</h3>
         <p>Quiet</p>
-        <div class="star-rating">
-          ★★★★☆
+        <div class="static-star-rating">
+          ★★★★☆ <!-- Static placeholder stars -->
+        </div>
+        <div class="dynamic-star-rating" data-user-rating="0">
+          <!-- Dynamic stars will be rendered here -->
         </div>
         <button class="heart-btn" onclick="toggleHeart(this)">❤</button>
       </div>
@@ -35,13 +38,17 @@
         <img src="/4HC3A2/images/cafe.jpg" alt="Cafe">
         <h3>Cafe</h3>
         <p>Good coffee</p>
-        <div class="star-rating">
-          ★★★☆☆
+        <div class="static-star-rating">
+          ★★★☆☆ <!-- Static placeholder stars -->
+        </div>
+        <div class="dynamic-star-rating" data-user-rating="0">
+          <!-- Dynamic stars will be rendered here -->
         </div>
         <button class="heart-btn" onclick="toggleHeart(this)">❤</button>
       </div>
     </div>
   </div>
+  
 
   <!-- Favorites Page -->
   <div id="favorites-page" class="page" style="display: none;">
