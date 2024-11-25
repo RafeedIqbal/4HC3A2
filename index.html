@@ -6,20 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Campus Study Place App</title>
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header>
     <h1>Campus Study Place App</h1>
+    <nav>
+      <button onclick="navigateTo('home-page')">Home</button>
+      <button onclick="navigateTo('favorites-page')">Favorites</button>
+      <button onclick="navigateTo('search-page')">Search</button>
+      <button onclick="navigateTo('add-place-page')">Add Place</button>
+    </nav>
   </header>
-  <main>
-    <div class="search-bar">
-      <input type="text" placeholder="Search study places..." />
-      <select>
-        <option value="noise">Noise Level</option>
-        <option value="distance">Proximity</option>
-        <option value="amenities">Amenities</option>
-      </select>
-    </div>
+
+  <!-- Home Page -->
+  <div id="home-page" class="page">
+    <h2>Home</h2>
     <div class="study-place-list">
       <div class="study-card">
         <img src="images/library.jpg" alt="Library">
@@ -27,8 +29,39 @@
         <p>Quiet, close to coffee shops</p>
       </div>
     </div>
-  </main>
-  <script src="script.js"></script>
+  </div>
+
+  <!-- Favorites Page -->
+  <div id="favorites-page" class="page" style="display: none;">
+    <h2>Your Favorites</h2>
+    <p>Here are your favorite study places.</p>
+    <div class="study-card">
+      <h3>Main Library</h3>
+      <button>Remove</button>
+    </div>
+  </div>
+
+  <!-- Search Page -->
+  <div id="search-page" class="page" style="display: none;">
+    <h2>Search Study Places</h2>
+    <input type="text" placeholder="Type to search..." />
+    <div class="search-results">
+      <p>No results yet...</p>
+    </div>
+  </div>
+
+  <!-- Add Place Page -->
+  <div id="add-place-page" class="page" style="display: none;">
+    <h2>Add a New Study Place</h2>
+    <form>
+      <label for="place-name">Place Name:</label>
+      <input type="text" id="place-name" name="place-name" required>
+      <label for="place-description">Description:</label>
+      <textarea id="place-description" name="place-description" required></textarea>
+      <label for="place-image">Upload Image:</label>
+      <input type="file" id="place-image" name="place-image">
+      <button type="submit">Add Place</button>
+    </form>
+  </div>
 </body>
 </html>
-    

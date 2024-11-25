@@ -1,8 +1,10 @@
 
-document.querySelector('.search-bar input').addEventListener('input', function(e) {
-  const query = e.target.value.toLowerCase();
-  document.querySelectorAll('.study-card').forEach(card => {
-    card.style.display = card.innerText.toLowerCase().includes(query) ? '' : 'none';
+function navigateTo(pageId) {
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(page => {
+    page.style.display = 'none';
   });
-});
-    
+  
+  // Show the selected page
+  document.getElementById(pageId).style.display = 'block';
+}
