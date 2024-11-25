@@ -1,8 +1,8 @@
+
 function navigateTo(pageId) {
   document.querySelectorAll('.page').forEach(page => {
     page.style.display = 'none';
   });
-  
   const page = document.getElementById(pageId);
   if (page) {
     page.style.display = 'block';
@@ -50,7 +50,8 @@ function renderDynamicStars(container, maxStars) {
 }
 
 // Initialize dynamic ratings on page load
-document.querySelectorAll('.dynamic-star-rating').forEach(container => {
-  renderDynamicStars(container, 5); // Assume a 5-star system
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.dynamic-star-rating').forEach(container => {
+    renderDynamicStars(container, 5); // Assume a 5-star system
+  });
 });
-

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,11 +28,9 @@
         <h3>Main Library</h3>
         <p>Quiet</p>
         <div class="static-star-rating">
-          ★★★★☆ <!-- Static placeholder stars -->
+          ★★★★☆
         </div>
-        <div class="dynamic-star-rating" data-user-rating="0">
-          <!-- Dynamic stars will be rendered here -->
-        </div>
+        <div class="dynamic-star-rating" data-user-rating="0"></div>
         <button class="heart-btn" onclick="toggleHeart(this)">❤</button>
       </div>
       <div class="study-card">
@@ -39,23 +38,19 @@
         <h3>Cafe</h3>
         <p>Good coffee</p>
         <div class="static-star-rating">
-          ★★★☆☆ <!-- Static placeholder stars -->
+          ★★★☆☆
         </div>
-        <div class="dynamic-star-rating" data-user-rating="0">
-          <!-- Dynamic stars will be rendered here -->
-        </div>
+        <div class="dynamic-star-rating" data-user-rating="0"></div>
         <button class="heart-btn" onclick="toggleHeart(this)">❤</button>
       </div>
     </div>
   </div>
-  
 
   <!-- Favorites Page -->
   <div id="favorites-page" class="page" style="display: none;">
     <h2>Your Favorites</h2>
     <p>Here are your favorite study places:</p>
-    <div id="favorites-list" class="study-place-list">
-    </div>
+    <div id="favorites-list" class="study-place-list"></div>
   </div>
 
   <!-- Search Page -->

@@ -92,15 +92,9 @@ nav button:hover {
   transition: transform 0.2s;
 }
 
-
 #favorites-list {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1rem;
 }
-
-
-
-
-
