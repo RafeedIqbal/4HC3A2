@@ -60,22 +60,22 @@ nav button:hover {
 }
 
 .heart-btn.liked {
-  color: red; /* Change color when liked */
+  color: red; 
 }
 
 .study-card img {
-  width: 100%; /* Ensure the image takes up the full width of its container */
-  height: 150px; /* Set a consistent height */
-  object-fit: cover; /* Crop the image to fill the dimensions without distortion */
-  border-radius: 5px; /* Optional: Add rounded corners for aesthetic */
+  width: 100%; 
+  height: 150px; 
+  object-fit: cover; 
+  border-radius: 5px; 
 }
 
 .star-rating {
-  font-size: 1.2rem; /* Adjust size of stars */
-  color: gold; /* Set the color of the stars */
-  margin: 5px 0; /* Add spacing */
-  display: flex; /* Optional: Align stars horizontally */
-  gap: 2px; /* Add spacing between stars */
+  font-size: 1.2rem; 
+  color: gold; 
+  margin: 5px 0; 
+  display: flex; 
+  gap: 2px;
 }
 
 
