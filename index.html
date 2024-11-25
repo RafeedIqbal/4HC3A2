@@ -49,6 +49,27 @@
   <div id="filters-page" class="page" style="display: none;">
     <h2>Filters</h2>
     <form>
+
+      <label for="proximity">Type:</label>
+      <select id="proximity">
+        <option value="library">Library</option>
+        <option value="cafe">Cafe</option>
+        <option value="classroom">Classroom</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="proximity">Outdoor/Indoor:</label>
+      <select id="proximity">
+        <option value="outdoor">Outdoor</option>
+        <option value="indoor">Indoor</option>
+      </select>
+
+      <label for="proximity">Dedicated Study Space:</label>
+      <select id="proximity">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+
       <label for="noise-level">Noise Level:</label>
       <select id="noise-level">
         <option value="quiet">Quiet</option>
@@ -63,11 +84,24 @@
         <option value="crowded">Crowded</option>
       </select>
 
-      <label for="proximity">Proximity to Food:</label>
+      <label for="proximity">Close to Food:</label>
       <select id="proximity">
-        <option value="nearby">Nearby</option>
-        <option value="far">Far</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
       </select>
+
+      <label for="proximity">Close to Refreshments:</label>
+      <select id="proximity">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+
+      <label for="proximity">Outlets:</label>
+      <select id="proximity">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+      
 
       <button type="button" onclick="navigateTo('home-page')">Apply Filters</button>
     </form>
