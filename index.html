@@ -14,7 +14,6 @@
     <nav>
       <button onclick="navigateTo('home-page')">Home</button>
       <button onclick="navigateTo('favorites-page')">Favorites</button>
-      <button onclick="navigateTo('search-page')">Search</button>
       <button onclick="navigateTo('add-place-page')">Add Place</button>
     </nav>
   </header>
@@ -22,14 +21,16 @@
   <!-- Home Page -->
   <div id="home-page" class="page">
     <h2>Home</h2>
+    <div class="search-bar">
+      <input type="text" placeholder="Search for a study place..." />
+      <button onclick="navigateTo('filters-page')">Filters</button>
+    </div>
     <div class="study-place-list">
       <div class="study-card">
         <img src="/4HC3A2/images/library.jpg" alt="Library">
         <h3>Main Library</h3>
         <p>Quiet</p>
-        <div class="static-star-rating">
-          ★★★★☆
-        </div>
+        <div class="static-star-rating">★★★★☆</div>
         <div class="dynamic-star-rating" data-user-rating="0"></div>
         <button class="heart-btn" onclick="toggleHeart(this)">❤</button>
       </div>
@@ -37,13 +38,39 @@
         <img src="/4HC3A2/images/cafe.jpg" alt="Cafe">
         <h3>Cafe</h3>
         <p>Good coffee</p>
-        <div class="static-star-rating">
-          ★★★☆☆
-        </div>
+        <div class="static-star-rating">★★★☆☆</div>
         <div class="dynamic-star-rating" data-user-rating="0"></div>
         <button class="heart-btn" onclick="toggleHeart(this)">❤</button>
       </div>
     </div>
+  </div>
+
+  <!-- Filters Page -->
+  <div id="filters-page" class="page" style="display: none;">
+    <h2>Filters</h2>
+    <form>
+      <label for="noise-level">Noise Level:</label>
+      <select id="noise-level">
+        <option value="quiet">Quiet</option>
+        <option value="moderate">Moderate</option>
+        <option value="loud">Loud</option>
+      </select>
+
+      <label for="crowdedness">Crowdedness:</label>
+      <select id="crowdedness">
+        <option value="empty">Empty</option>
+        <option value="moderate">Moderate</option>
+        <option value="crowded">Crowded</option>
+      </select>
+
+      <label for="proximity">Proximity to Food:</label>
+      <select id="proximity">
+        <option value="nearby">Nearby</option>
+        <option value="far">Far</option>
+      </select>
+
+      <button type="button" onclick="navigateTo('home-page')">Apply Filters</button>
+    </form>
   </div>
 
   <!-- Favorites Page -->
