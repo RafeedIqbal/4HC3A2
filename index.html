@@ -27,8 +27,8 @@
     </div>
     <div class="study-place-list">
       <div class="study-card">
-        <img src="/4HC3A2/images/library.jpg" alt="Library">
-        <h3>Main Library</h3>
+        <img src="/4HC3A2/images/library.jpg" alt="Library" onclick="viewDetails('Main Library')">
+        <h3 onclick="viewDetails('Main Library')">Main Library</h3>
         <p>Quiet</p>
         <div class="rate-section">
           <span>Rated:</span>
@@ -38,7 +38,7 @@
           <span>Rate:</span>
           <div class="dynamic-star-rating" data-user-rating="0"></div>
         </div>
-        <button class="heart-btn" onclick="toggleHeart(this)">❤</button>
+        <button class="heart-btn" onclick="toggleHeart(this); event.stopPropagation();">❤</button>
       </div>
       <div class="study-card">
         <img src="/4HC3A2/images/cafe.jpg" alt="Cafe">
@@ -128,10 +128,27 @@
         <option value="no">No</option>
       </select>
       
-
       <button type="button" onclick="navigateTo('home-page')">Apply Filters</button>
     </form>
   </div>
+
+  <!-- Details Pages -->
+  <div id="details-page" class="page" style="display: none;">
+    <h2>Main Library</h2>
+    <img src="/4HC3A2/images/library.jpg" alt="Library" style="width:100%; max-height:300px; object-fit:cover;">
+    <p>
+      <strong>Description:</strong> A quiet place with ample seating and plenty of natural light.
+    </p>
+    <ul>
+      <li><strong>Noise Level:</strong> Quiet</li>
+      <li><strong>Crowdedness:</strong> Moderate</li>
+      <li><strong>Proximity to Food:</strong> Yes</li>
+      <li><strong>Outlets:</strong> Plenty</li>
+      <li><strong>Type:</strong> Indoor Library</li>
+    </ul>
+    <button onclick="navigateTo('home-page')">Back to Home</button>
+  </div>
+  
 
   <!-- Favorites Page -->
   <div id="favorites-page" class="page" style="display: none;">
@@ -151,6 +168,58 @@
       <label for="place-image">Upload Image:</label>
       <input type="file" id="place-image" name="place-image">
       <button type="submit">Add Place</button>
+
+      <label for="proximity">Type:</label>
+      <select id="proximity">
+        <option value="library">Library</option>
+        <option value="cafe">Cafe</option>
+        <option value="classroom">Classroom</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="proximity">Outdoor/Indoor:</label>
+      <select id="proximity">
+        <option value="outdoor">Outdoor</option>
+        <option value="indoor">Indoor</option>
+      </select>
+
+      <label for="proximity">Dedicated Study Space:</label>
+      <select id="proximity">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+
+      <label for="noise-level">Noise Level:</label>
+      <select id="noise-level">
+        <option value="quiet">Quiet</option>
+        <option value="moderate">Moderate</option>
+        <option value="loud">Loud</option>
+      </select>
+
+      <label for="crowdedness">Crowdedness:</label>
+      <select id="crowdedness">
+        <option value="empty">Empty</option>
+        <option value="moderate">Moderate</option>
+        <option value="crowded">Crowded</option>
+      </select>
+
+      <label for="proximity">Close to Food:</label>
+      <select id="proximity">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+
+      <label for="proximity">Close to Refreshments:</label>
+      <select id="proximity">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+
+      <label for="proximity">Outlets:</label>
+      <select id="proximity">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
     </form>
   </div>
 </body>
