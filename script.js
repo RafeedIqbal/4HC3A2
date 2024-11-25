@@ -13,33 +13,46 @@ let favoriteCards = [];
 
 function toggleHeart(button) {
   button.classList.toggle('liked'); 
-  const card = button.parentElement; 
-  const favoritesList = document.getElementById('favorites-list');
-
+  const card = button.parentElement;
+  
   if (button.classList.contains('liked')) {
-    const isAlreadyFavorite = favoriteCards.some(favCard => favCard.isEqualNode(card));
-    if (!isAlreadyFavorite) {
-      const clonedCard = card.cloneNode(true);
-
-      const clonedHeartButton = clonedCard.querySelector('.heart-btn');
-      clonedHeartButton.onclick = () => toggleHeart(clonedHeartButton);
-
-      favoriteCards.push(clonedCard);
-    }
+    addCardToFavorites(card);
   } else {
-    favoriteCards = favoriteCards.filter(favCard => !favCard.isEqualNode(card));
+    removeCardFromFavorites(card);
   }
-
   updateFavoritesList();
+}
+
+function addCardToFavorites(card) {
+  const isAlreadyFavorite = favoriteCards.some(favCard => favCard.isEqualNode(card));
+  if (!isAlreadyFavorite) {
+    const clonedCard = cloneCardWithListeners(card);
+    favoriteCards.push(clonedCard);
+  }
+}
+
+function removeCardFromFavorites(card) {
+  favoriteCards = favoriteCards.filter(favCard => !favCard.isEqualNode(card));
 }
 
 function updateFavoritesList() {
   const favoritesList = document.getElementById('favorites-list');
   favoritesList.innerHTML = ''; 
-  favoriteCards.forEach(favCard => favoritesList.appendChild(favCard));
+  favoriteCards.forEach(favCard => {
+    favoritesList.appendChild(favCard);
+    initializeDynamicStars(favCard.querySelector('.dynamic-star-rating'));
+  });
 }
 
-function renderDynamicStars(container, maxStars) {
+function cloneCardWithListeners(card) {
+  const clonedCard = card.cloneNode(true);
+  const clonedHeartButton = clonedCard.querySelector('.heart-btn');
+  clonedHeartButton.onclick = () => toggleHeart(clonedHeartButton);
+  return clonedCard;
+}
+
+function initializeDynamicStars(container) {
+  const maxStars = 5;
   const currentRating = parseInt(container.getAttribute('data-user-rating')) || 0;
   container.innerHTML = '';
 
@@ -49,15 +62,31 @@ function renderDynamicStars(container, maxStars) {
     star.style.cursor = 'pointer';
 
     star.addEventListener('click', () => {
-      container.setAttribute('data-user-rating', i); 
-      renderDynamicStars(container, maxStars); 
+      container.setAttribute('data-user-rating', i);
+      synchronizeRatings(container);
+      initializeDynamicStars(container);
     });
 
     container.appendChild(star);
   }
 }
+
+function synchronizeRatings(container) {
+  const card = container.closest('.study-card');
+  const cardId = card.getAttribute('data-id');
+  const matchingCards = document.querySelectorAll(`.study-card[data-id="${cardId}"]`);
+  
+  matchingCards.forEach(matchingCard => {
+    const matchingContainer = matchingCard.querySelector('.dynamic-star-rating');
+    if (matchingContainer !== container) {
+      matchingContainer.setAttribute('data-user-rating', container.getAttribute('data-user-rating'));
+      initializeDynamicStars(matchingContainer);
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.dynamic-star-rating').forEach(container => {
-    renderDynamicStars(container, 5);
+    initializeDynamicStars(container);
   });
 });
