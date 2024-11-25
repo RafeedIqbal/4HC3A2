@@ -78,5 +78,13 @@ nav button:hover {
   gap: 2px;
 }
 
+#favorites-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+
 
 
