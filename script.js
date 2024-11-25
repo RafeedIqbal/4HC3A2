@@ -9,31 +9,41 @@ function navigateTo(pageId) {
   }
 }
 
-let favoriteCards = []; 
+let favoriteCards = [];
 
 function toggleHeart(button) {
-  button.classList.toggle('liked');
+  if (button.classList.contains('liked')) {
+    return;
+  }
+
+  button.classList.add('liked'); 
 
   const card = button.parentElement; 
   const favoritesList = document.getElementById('favorites-list');
+  const isAlreadyFavorite = favoriteCards.some(
+    favCard => favCard.isEqualNode(card)
+  );
 
-  if (button.classList.contains('liked')) {
-    const isAlreadyFavorite = favoriteCards.some(
-      favCard => favCard.isEqualNode(card)
-    );
+  if (!isAlreadyFavorite) {
+    const clonedCard = card.cloneNode(true);
+    const clonedHeartButton = clonedCard.querySelector('.heart-btn');
+    clonedHeartButton.textContent = "✖"; 
+    clonedHeartButton.onclick = () => removeFavorite(clonedCard);
 
-    if (!isAlreadyFavorite) {
-      const clonedCard = card.cloneNode(true);
-
-      const clonedHeartButton = clonedCard.querySelector('.heart-btn');
-      clonedHeartButton.remove();
-
-      favoriteCards.push(clonedCard); 
-    }
-  } else {
-    favoriteCards = favoriteCards.filter(favCard => !favCard.isEqualNode(card));
+    favoriteCards.push(clonedCard); 
   }
 
+  updateFavoritesList();
+}
+
+function removeFavorite(card) {
+  favoriteCards = favoriteCards.filter(favCard => !favCard.isEqualNode(card));
+
+  updateFavoritesList();
+}
+
+function updateFavoritesList() {
+  const favoritesList = document.getElementById('favorites-list');
   favoritesList.innerHTML = '';
   favoriteCards.forEach(favCard => favoritesList.appendChild(favCard));
 }
