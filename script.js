@@ -1,4 +1,3 @@
-
 function navigateTo(pageId) {
   // Hide all pages
   document.querySelectorAll('.page').forEach(page => {
@@ -6,5 +5,8 @@ function navigateTo(pageId) {
   });
   
   // Show the selected page
-  document.getElementById(pageId).style.display = 'block';
+  const page = document.getElementById(pageId);
+  if (page) {
+    page.style.display = 'block';
+  }
 }
