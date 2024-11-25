@@ -14,7 +14,7 @@
     <nav>
       <button onclick="navigateTo('home-page')">Home</button>
       <button onclick="navigateTo('favorites-page')">Favorites</button>
-      <button onclick="navigateTo('add-place-page')">Add Place</button>
+      <button onclick="navigateTo('add-recommendation')">Add Place</button>
     </nav>
   </header>
 
@@ -39,6 +39,14 @@
         <h3>Cafe</h3>
         <p>Good coffee</p>
         <div class="static-star-rating">★★★☆☆</div>
+        <div class="dynamic-star-rating" data-user-rating="0"></div>
+        <button class="heart-btn" onclick="toggleHeart(this)">❤</button>
+      </div>
+      <div class="study-card">
+        <img src="/4HC3A2/images/outdoors.jpg" alt="Quad">
+        <h3>Picnic Table outside BSB</h3>
+        <p>Great if the weather's good!</p>
+        <div class="static-star-rating">★★☆☆☆</div>
         <div class="dynamic-star-rating" data-user-rating="0"></div>
         <button class="heart-btn" onclick="toggleHeart(this)">❤</button>
       </div>
@@ -114,9 +122,9 @@
     <div id="favorites-list" class="study-place-list"></div>
   </div>
 
-  <!-- Add Place Page -->
-  <div id="add-place-page" class="page" style="display: none;">
-    <h2>Add a New Study Place</h2>
+  <!-- Add Recommendation -->
+  <div id="add-recommendation" class="page" style="display: none;">
+    <h2>Recommend a New Study Place</h2>
     <form>
       <label for="place-name">Place Name:</label>
       <input type="text" id="place-name" name="place-name" required>
