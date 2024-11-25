@@ -10,3 +10,8 @@ function navigateTo(pageId) {
     page.style.display = 'block';
   }
 }
+
+function toggleHeart(button) {
+  // Toggle the 'liked' class
+  button.classList.toggle('liked');
+}

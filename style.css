@@ -49,3 +49,17 @@ nav button:hover {
   max-width: 100%;
   height: auto;
 }
+
+.heart-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: gray;
+  margin-top: 10px;
+}
+
+.heart-btn.liked {
+  color: red; /* Change color when liked */
+}
+
