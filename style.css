@@ -63,3 +63,11 @@ nav button:hover {
   color: red; /* Change color when liked */
 }
 
+.study-card img {
+  width: 100%; /* Ensure the image takes up the full width of its container */
+  height: 150px; /* Set a consistent height */
+  object-fit: cover; /* Crop the image to fill the dimensions without distortion */
+  border-radius: 5px; /* Optional: Add rounded corners for aesthetic */
+}
+
+
