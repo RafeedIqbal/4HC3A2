@@ -27,15 +27,15 @@
     </div>
     <div class="study-place-list">
       <div class="study-card">
-        <img src="/4HC3A2/images/library.jpg" alt="Library" onclick="viewDetails('Main Library')">
-        <h3 onclick="viewDetails('Main Library')">Main Library</h3>
+        <img src="/4HC3A2/images/library.jpg" alt="Library" onclick="navigateTo('library-details')">
+        <h3 onclick="navigateTo('library-details')">Library</h3>
         <p>Quiet</p>
         <div class="rate-section">
           <span>Rated:</span>
           <div class="static-star-rating">★★★★☆</div>
         </div>
         <div class="rate-section">
-          <span>Rate:</span>
+          <span>Rate it Yourself:</span>
           <div class="dynamic-star-rating" data-user-rating="0"></div>
         </div>
         <button class="heart-btn" onclick="toggleHeart(this); event.stopPropagation();">❤</button>
@@ -52,7 +52,7 @@
           <span>Rate it Yourself:</span>
           <div class="dynamic-star-rating" data-user-rating="0"></div>
         </div>
-        <button class="heart-btn" onclick="toggleHeart(this)">❤</button>
+        <button class="heart-btn" onclick="toggleHeart(this); event.stopPropagation();">❤</button>
       </div>
       <div class="study-card">
         <img src="/4HC3A2/images/outdoors.jpg" alt="Quad">
@@ -63,10 +63,10 @@
           <div class="static-star-rating">★★☆☆☆</div>
         </div>
         <div class="rate-section">
-          <span>Rate:</span>
+          <span>Rate it Yourself:</span>
           <div class="dynamic-star-rating" data-user-rating="0"></div>
         </div>
-        <button class="heart-btn" onclick="toggleHeart(this)">❤</button>
+        <button class="heart-btn" onclick="toggleHeart(this); event.stopPropagation();">❤</button>
       </div>
     </div>
   </div>
