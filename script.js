@@ -23,7 +23,12 @@ function toggleHeart(button) {
     );
 
     if (!isAlreadyFavorite) {
-      favoriteCards.push(card.cloneNode(true)); 
+      const clonedCard = card.cloneNode(true);
+
+      const clonedHeartButton = clonedCard.querySelector('.heart-btn');
+      clonedHeartButton.remove();
+
+      favoriteCards.push(clonedCard); 
     }
   } else {
     favoriteCards = favoriteCards.filter(favCard => !favCard.isEqualNode(card));
@@ -32,6 +37,7 @@ function toggleHeart(button) {
   favoritesList.innerHTML = '';
   favoriteCards.forEach(favCard => favoritesList.appendChild(favCard));
 }
+
 
 
 function renderDynamicStars(container, maxStars) {
