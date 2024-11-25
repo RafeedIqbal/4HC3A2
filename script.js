@@ -9,11 +9,6 @@ function navigateTo(pageId) {
   }
 }
 
-function viewDetails(title) {
-  navigateTo('details-page');
-}
-
-
 let favoriteCards = [];
 
 function toggleHeart(button) {
