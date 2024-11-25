@@ -70,22 +70,20 @@ nav button:hover {
   border-radius: 5px; 
 }
 
-/* Static stars */
 .static-star-rating {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: gold;
   margin-bottom: 5px;
 }
 
-/* Dynamic stars */
 .dynamic-star-rating span {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: gold;
   margin: 0 2px;
 }
 
 .dynamic-star-rating span:hover {
-  transform: scale(1.2); /* Slight hover effect */
+  transform: scale(1.2); 
 }
 
 .dynamic-star-rating span {
